@@ -19,11 +19,35 @@ you need to follow  [PointLLM](https://github.com/InternRobotics/PointLLM) to do
 3、 Pretrained model download
  you can go to [there](https://huggingface.co/RunsenXu) to download the Pretrained model. In our paper, we use the PointLLM_7B_v1.2 as the Pretrained model.
 
- 4、 PointLLM inference
+4、 PointLLM inference
     Run the following commands to infer the 3D captions:
 ```bash
-    cd Point-Graph LLM
-    export PYTHONPATH=$PWD
-    python pointllm/eval/eval_modelnet_cls.py --model_name PATH/TO/YOUR/Pretrainedmodel --prompt_index 0 
-    --dataset_name ModelNet --batch_size 64
+export PYTHONPATH=$PWD
+python pointllm/eval/eval_modelnet_cls.py --model_name PATH/TO/YOUR/Pretrainedmodel --prompt_index 0 
+--dataset_name ModelNet --batch_size 64
 ```
+Afer the that, you will get two files. (1) 3D captions files: ModelNet40_classification_prompt0.json (2)Features of the test samples: concat_f_values_MN.txt. the results will be saved in {model_name}/evaluation as a dict with the following format:
+
+    {
+    "prompt": "",
+    "results": [
+    {
+      "object_id": "",
+      "ground_truth": "", 
+      "model_output": "",
+      "label_name": "" # only for classification on modelnet40
+    }
+    ]
+    }
+
+
+5、 LLM inference
+    We provide GPT-4 and DeepSeek-V3 for inference. For 3D recognition task, You can run the following commands:
+ 
+
+
+
+
+
+
+
