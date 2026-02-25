@@ -137,7 +137,12 @@ Afer the that, you will get two files. (1) 3D captions files: ModelNet40_classif
 Then you can follow above steps to do the 2nd LLM inference.
 
 ## 📄 Citation
-
+@inproceedings{chen2026PGLLM,
+  title={Test-Time Optimization of 3D Point Cloud LLM via Manifold-Aware In-Context Guidance and Refinement},
+  author={Tiankai Chen, Nanqing Liu, Li Yang, Xulei Yang, Tianrui Li, Xun Xu},
+  booktitle={Proceedings of the International Conference on Learning Representation},
+  year={2026},
+}
 
 ## 🙏 Acknowledgements
 We sincerely appreciate these highly valuable repositories [PointLLM](https://github.com/InternRobotics/PointLLM) and [Minigpt3d](https://github.com/tangyuan96/minigpt-3d)
