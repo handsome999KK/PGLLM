@@ -95,8 +95,9 @@ python AUROC.py  --features_path PATH/TO/YOUR/concat_f_values_MN.txt --dataset_s
 --PointLLM_results_path PATH/TO/YOUR/ModelNet_classification_prompt0.  --LLM_results_path PATH/TO/YOUR/GPT__results_OOD_MN1.json
 ```
 
-### 7、
-
+### 7、 Eval on open-sourced LLM
+In our paper we eval the results on three open-sourced LLM: Qwen, llama and GPToss, you can find the eval file in pointllm/open-sourced LLM
+you can follow above step 5 to do the  LLM inference.
 
 
 
