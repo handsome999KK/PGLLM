@@ -5,7 +5,7 @@
 - 💻 **Single-GPU friendly**: The released testing pipeline can run on **a single RTX 3090**, making reproduction and deployment practical.
 
 ## Pointllm-based
-# 1、Install packages (you can follow [PointLLM](https://github.com/InternRobotics/PointLLM) to build the env)
+### 1、Install packages (you can follow [PointLLM](https://github.com/InternRobotics/PointLLM) to build the env)
 ```bash
 cd pointllm
 conda create -n pointllm python=3.10 -y
@@ -13,10 +13,10 @@ conda activate pointllm
 pip install --upgrade pip  # enable PEP 660 support
 pip install -e .
 ```
-# 2、Data Preparation
+### 2、Data Preparation
 you need to follow  [PointLLM](https://github.com/InternRobotics/PointLLM) to download ModelNet40 and Objaverse Dataset and put them to the same folder, as for Shapenetcore, you can from [here](https://drive.google.com/drive/folders/1xEblkFTEIdV1IyIlQLi792-lXfoxVCYO?usp=sharing) to download.
 
-# 3、 Pretrained model download
+### 3、 Pretrained model download
  you can go to [there](https://huggingface.co/RunsenXu) to download the Pretrained model. In our paper, we use the PointLLM_7B_v1.2 as the Pretrained model.
 
 ### 4、 PointLLM inference
@@ -82,7 +82,7 @@ python GPT_OOD_MN.py  --features_path PATH/TO/YOUR/concat_f_values_MN.txt --data
 ```
    After that, You will get a LLM inference score file: Point-Graph LLM/GPT__results_OOD_MNx.json(or DeepSeeK-V3)
 
-6、 Final inference
+### 6、 Final inference
 
  You can run the following following commands to get the final results for 3D OOD detection or For 3D recognition.
  ```bash
@@ -95,7 +95,7 @@ python AUROC.py  --features_path PATH/TO/YOUR/concat_f_values_MN.txt --dataset_s
 --PointLLM_results_path PATH/TO/YOUR/ModelNet_classification_prompt0.  --LLM_results_path PATH/TO/YOUR/GPT__results_OOD_MN1.json
 ```
 
-7、
+### 7、
 
 
 
