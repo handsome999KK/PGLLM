@@ -1,0 +1,8 @@
+NAME: S3DIS
+DATA_PATH: data/s3dis13_data
+NUM_CATEGORY: 13
+USE_NORMALS: FALSE
+npoints: 2048
+random_sampling: TRUE
+use_height: FALSE
+use_normals: FALSE

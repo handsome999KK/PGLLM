@@ -1,0 +1,8 @@
+NAME: ShapeNet
+DATA_PATH: data/shapenet54_data
+NUM_CATEGORY: 54
+USE_NORMALS: FALSE
+npoints: 4096
+random_sampling: TRUE
+use_height: FALSE
+use_normals: FALSE

@@ -1,0 +1,8 @@
+NAME: ScanObjectNN_train
+DATA_PATH: data/scanobjectnn_train15_data
+NUM_CATEGORY: 15
+USE_NORMALS: FALSE
+npoints: 2048
+random_sampling: TRUE
+use_height: FALSE
+use_normals: FALSE
