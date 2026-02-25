@@ -100,6 +100,51 @@ In our paper we eval the results on three open-sourced LLM: Qwen, llama and GPTo
 you can follow above step 5 to do the  LLM inference.
 
 
+## Minigpt3d-based
+### 1、Install packages (you can follow [Minigpt3d](https://github.com/tangyuan96/minigpt-3d) to build the env)
+
+```bash
+conda env create -f environment.yml
+conda activate minigpt_3d
+bash env_install.sh
+```
+
+### 2、Weight Preparation
+Follow [Minigpt3d](https://huggingface.co/YuanTang96/MiniGPT-3D/tree/main) to download the weights.
+Finally, the overall data directory structure should be:
+
+MiniGPT-3D
+|-- params_weight
+|   |-- MiniGPT_3D_stage_3       # Our MiniGPT-3D stage III weight, needed to verify the results of paper
+|   |-- MiniGPT_3D_stage_4       # Our MiniGPT-3D stage IV weight, Needed to verify the results of paper
+|   |-- Phi_2                    # LLM weight 
+|   |-- TinyGPT_V_stage_3        # 2D-LLM weights including  loRA & Norm of LLM and  projector 
+|   |-- all-mpnet-base-v2        # Used in the caption traditional evaluation
+|   |-- bert-base-uncased        # Used in initialize Q-former
+|   |-- pc_encoder               # point cloud encoder
+|   `-- sup-simcse-roberta-large # Used in the caption traditional evaluation
+|-- train_configs
+|   `-- MiniGPT_3D
+|   .......
+
+### 3、 caption generation
+```bash
+# Prompt 0:
+export PYTHONPATH=$PWD
+CUDA_VISIBLE_DEVICES=0 python pointllm/eval/eval_modelnet_cls.py --out_path ./output/test  --cfg-path ./eval_configs/benchmark_evaluation_paper.yaml    --prompt_index 0
+```
+Afer the that, you will get two files. (1) 3D captions files: ModelNet40_classification_prompt0.json (2)Features of the test samples: concat_f_values_MN.txt.
+Then you can follow above steps to do the 2nd LLM inference.
+
+## 📄 Citation
+
+
+## 🙏 Acknowledgements
+We sincerely appreciate these highly valuable repositories [PointLLM](https://github.com/InternRobotics/PointLLM) and [Minigpt3d](https://github.com/tangyuan96/minigpt-3d)
+
+
+
+
 
 
 
