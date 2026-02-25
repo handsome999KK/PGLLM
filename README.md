@@ -19,7 +19,7 @@ you need to follow  [PointLLM](https://github.com/InternRobotics/PointLLM) to do
 # 3、 Pretrained model download
  you can go to [there](https://huggingface.co/RunsenXu) to download the Pretrained model. In our paper, we use the PointLLM_7B_v1.2 as the Pretrained model.
 
-# 4、 PointLLM inference
+### 4、 PointLLM inference
     Run the following commands to infer the 3D captions:
 ```bash
 export PYTHONPATH=$PWD
@@ -41,7 +41,7 @@ Afer the that, you will get two files. (1) 3D captions files: ModelNet40_classif
     }
 
 
-# 5、 LLM inference
+### 5、 LLM inference
     We provide GPT-4 and DeepSeek-V3 for inference. For 3D recognition task, You can run the following commands:
  ```bash
 # For 3D recognition task
@@ -81,7 +81,21 @@ python GPT_OOD_MN.py  --features_path PATH/TO/YOUR/concat_f_values_MN.txt --data
 --PointLLM_results_path PATH/TO/YOUR/ModelNet_classification_prompt0.
 ```
    After that, You will get a LLM inference score file: Point-Graph LLM/GPT__results_OOD_MNx.json(or DeepSeeK-V3)
- 
+
+6、 Final inference
+
+ You can run the following following commands to get the final results for 3D OOD detection or For 3D recognition.
+ ```bash
+# For 3D recognition task
+python ACC.py  --features_path PATH/TO/YOUR/concat_f_values_MN.txt --LLM_results_path PATH/TO/YOUR/GPT__results_cls_MN.json
+--PointLLM_results_path PATH/TO/YOUR/ModelNet_classification_prompt0.
+
+# For 3D OOD detection task
+python AUROC.py  --features_path PATH/TO/YOUR/concat_f_values_MN.txt --dataset_split MN1 
+--PointLLM_results_path PATH/TO/YOUR/ModelNet_classification_prompt0.  --LLM_results_path PATH/TO/YOUR/GPT__results_OOD_MN1.json
+```
+
+7、
 
 
 
