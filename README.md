@@ -5,7 +5,7 @@
 - 💻 **Single-GPU friendly**: The released testing pipeline can run on **a single RTX 3090**, making reproduction and deployment practical.
 
 ## Pointllm-based
-1、Install packages (you can follow [PointLLM](https://github.com/InternRobotics/PointLLM) to build the env)
+# 1、Install packages (you can follow [PointLLM](https://github.com/InternRobotics/PointLLM) to build the env)
 ```bash
 cd pointllm
 conda create -n pointllm python=3.10 -y
@@ -13,13 +13,13 @@ conda activate pointllm
 pip install --upgrade pip  # enable PEP 660 support
 pip install -e .
 ```
-2、Data Preparation
+# 2、Data Preparation
 you need to follow  [PointLLM](https://github.com/InternRobotics/PointLLM) to download ModelNet40 and Objaverse Dataset and put them to the same folder, as for Shapenetcore, you can from [here](https://drive.google.com/drive/folders/1xEblkFTEIdV1IyIlQLi792-lXfoxVCYO?usp=sharing) to download.
 
-3、 Pretrained model download
+# 3、 Pretrained model download
  you can go to [there](https://huggingface.co/RunsenXu) to download the Pretrained model. In our paper, we use the PointLLM_7B_v1.2 as the Pretrained model.
 
-4、 PointLLM inference
+# 4、 PointLLM inference
     Run the following commands to infer the 3D captions:
 ```bash
 export PYTHONPATH=$PWD
@@ -41,8 +41,46 @@ Afer the that, you will get two files. (1) 3D captions files: ModelNet40_classif
     }
 
 
-5、 LLM inference
+# 5、 LLM inference
     We provide GPT-4 and DeepSeek-V3 for inference. For 3D recognition task, You can run the following commands:
+ ```bash
+# For 3D recognition task
+cd Point-Graph LLM
+
+# use DeepSeek-V3
+python deepseek_cls_MN.py  --features_path PATH/TO/YOUR/concat_f_values_MN.txt --PointLLM_results_path PATH/TO/YOUR/ModelNet_classification_prompt0.json
+
+# use GPT-4
+python GPT_cls_MN.py  --features_path PATH/TO/YOUR/concat_f_values_MN.txt --PointLLM_results_path PATH/TO/YOUR/ModelNet_classification_prompt0.json
+```
+After that, You will get a LLM inference score file: Point-Graph LLM/GPT__results_cls_MN.json(or DeepSeeK-V3)
+
+For 3D OOD detection task, You can run the following commands:
+ ```bash
+# For 3D OOD detection task
+cd Point-Graph LLM
+
+# use DeepSeek-V3 
+python deepseek_OOD_MN.py  --features_path PATH/TO/YOUR/concat_f_values_MN.txt --dataset_split MN1
+--PointLLM_results_path PATH/TO/YOUR/ModelNet_classification_prompt0.
+
+python deepseek_OOD_MN.py  --features_path PATH/TO/YOUR/concat_f_values_MN.txt --dataset_split MN2
+--PointLLM_results_path PATH/TO/YOUR/ModelNet_classification_prompt0.json
+
+python deepseek_OOD_MN.py  --features_path PATH/TO/YOUR/concat_f_values_MN.txt --dataset_split MN3
+--PointLLM_results_path PATH/TO/YOUR/ModelNet_classification_prompt0.json
+
+# use DeepSeek-V3 
+python GPT_OOD_MN.py  --features_path PATH/TO/YOUR/concat_f_values_MN.txt --dataset_split MN1
+--PointLLM_results_path PATH/TO/YOUR/ModelNet_classification_prompt0.
+
+python GPT_OOD_MN.py  --features_path PATH/TO/YOUR/concat_f_values_MN.txt --dataset_split MN2
+--PointLLM_results_path PATH/TO/YOUR/ModelNet_classification_prompt0.
+
+python GPT_OOD_MN.py  --features_path PATH/TO/YOUR/concat_f_values_MN.txt --dataset_split MN3
+--PointLLM_results_path PATH/TO/YOUR/ModelNet_classification_prompt0.
+```
+   After that, You will get a LLM inference score file: Point-Graph LLM/GPT__results_OOD_MNx.json(or DeepSeeK-V3)
  
 
 
