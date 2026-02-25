@@ -137,6 +137,7 @@ Afer the that, you will get two files. (1) 3D captions files: ModelNet40_classif
 Then you can follow above steps to do the 2nd LLM inference.
 
 ## 📄 Citation
+If you find this work helpful, please consider citing:
 ```bash
 @inproceedings{chen2026PGLLM,
   title={Test-Time Optimization of 3D Point Cloud LLM via Manifold-Aware In-Context Guidance and Refinement},
